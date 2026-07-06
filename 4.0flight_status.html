@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Flight Status | Avanta Airline</title>
+
+  <link rel="stylesheet" href="4.0flight_status.css" />
+</head>
+
+<body>
+
+  <header class="top-header">
+    <div class="brand">
+      <img src="logo.png" alt="Avanta Airline" />
+      <h1>Avanta <span>Airline</span></h1>
+    </div>
+
+    <nav>
+      <a href="2dash.html">Dashboard</a>
+      <a href="5.0.html">Profile</a>
+      <a href="7.0support.html">Support</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <section class="hero-section">
+      <h2>Check Flight Status</h2>
+      <p>
+        Enter your ticket number or flight number to view the latest status,
+        gate, terminal, route and departure details.
+      </p>
+    </section>
+
+    <section class="search-card">
+      <h3>Search Flight</h3>
+
+      <form id="statusForm">
+        <input 
+          type="text" 
+          id="searchValue" 
+          placeholder="Enter Ticket Number or Flight Number e.g. AVT-1777657398907 / AV101"
+          required
+        />
+
+        <button type="submit">Check Status</button>
+      </form>
+
+      <p id="message"></p>
+    </section>
+
+    <section id="statusResults" class="results-section"></section>
+
+  </main>
+
+  <script src="4.0flight_status.js"></script>
+</body>
+</html>

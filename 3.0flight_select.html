@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Flight</title>
+  <link rel="stylesheet" href="3.0flight_select.css">
+</head>
+<body>
+    <header>
+    <nav class="navbar">
+      <div class="logo"><h3>Book Flight</h3></div>
+      <button id="theme-toggle" class="theme-toggle" title="Toggle Dark Mode">🌙</button>
+
+    </nav>
+    
+  </header>
+  <section class="booking-section">
+    <div class="booking-card">
+      <h2>Find Flights</h2>
+      <form id="flightForm" action="3.1.html">
+        <div class="input-group">
+          <label>From</label>
+          <select id="from">
+            <option value="">Select departure</option>
+            <option>Mumbai</option>
+            <option>Delhi</option>
+            <option>Bangalore</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>To</label>
+          <select id="to">
+            <option value="">Select destination</option>
+            <option>Goa</option>
+            <option>Kolkata</option>
+            <option>Chennai</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>Date</label>
+          <input type="date" id="date">
+        </div>
+
+        <button type="submit">Find Flights</button>
+
+      </form>
+      <div id="results"></div>
+    </div>
+  </section>
+<footer class="seat-footer">
+    <p>Need help? <a href="#">Contact Support</a></p>
+  </footer>
+ <script src="3.0flight_select.js"></script>
+</body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boarding Pass | Avanta Airline</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #06152b, #0b2345, #102f5c);
+      color: white;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 14px 30px;
+      background: rgba(5, 18, 39, 0.95);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 23px;
+      color: #ffd700;
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: 1px solid #ffd700;
+      color: #ffd700;
+      padding: 9px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .container {
+      width: 94%;
+      max-width: 1050px;
+      margin: 22px auto;
+    }
+
+    .success-box {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .success-box h2 {
+      font-size: 30px;
+      color: #ffd700;
+      margin: 0 0 6px;
+    }
+
+    .success-box p {
+      color: #d8e4ff;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    #ticketArea.locked {
+      filter: blur(6px);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .ticket-wrapper {
+      background: #f7f9fc;
+      color: #06152b;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.42);
+      display: grid;
+      grid-template-columns: 2.35fr 0.85fr;
+      border: 2px solid #d6dce8;
+    }
+
+    .ticket-main {
+      padding: 22px;
+      background: #f7f9fc;
+      position: relative;
+    }
+
+    .ticket-main::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 18px;
+      bottom: 18px;
+      border-right: 2px dashed #a9b5c8;
+    }
+
+    .ticket-side {
+      background: linear-gradient(180deg, #eef5ff, #f9fbff);
+      color: #06152b;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .ticket-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.8px solid #dce3ef;
+      padding-bottom: 11px;
+      margin-bottom: 14px;
+    }
+
+    .ticket-title h2 {
+      margin: 0;
+      color: #06152b;
+      font-size: 25px;
+      letter-spacing: 1px;
+    }
+
+    .status {
+      padding: 7px 13px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .status.confirmed {
+      background: #d7f9df;
+      color: #0f7a2a;
+    }
+
+    .status.cancelled {
+      background: #ffe0e0;
+      color: #c62828;
+    }
+
+    .passenger-row {
+      background: #ffffff;
+      border: 1px solid #dce3ef;
+      border-radius: 12px;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 1.2fr 1.4fr 0.9fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .label {
+      color: #6b7280;
+      display: block;
+      margin-bottom: 4px;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.4px;
+    }
+
+    .value {
+      font-size: 14px;
+      font-weight: bold;
+      color: #06152b;
+      word-break: break-word;
+    }
+
+    .route {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 14px;
+      align-items: center;
+      margin: 17px 0;
+      text-align: center;
+    }
+
+    .city h1 {
+      margin: 0;
+      font-size: 40px;
+      color: #0b2345;
+      line-height: 1;
+    }
+
+    .city p {
+      margin: 5px 0 0;
+      color: #6b7280;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .plane-line {
+      color: #d4af37;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .time-strip {
+      background: #06152b;
+      color: white;
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 14px 0;
+    }
+
+    .time-strip small {
+      display: block;
+      color: #b8c7e0;
+      text-transform: uppercase;
+      font-size: 10px;
+      margin-bottom: 4px;
+      font-weight: bold;
+    }
+
+    .time-strip span {
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 11px;
+      margin-top: 13px;
+    }
+
+    .detail-box {
+      background: #ffffff;
+      padding: 11px;
+      border-radius: 10px;
+      border: 1px solid #dce3ef;
+      min-height: 62px;
+    }
+
+    .note-box {
+      margin-top: 13px;
+      background: #fff8df;
+      border-left: 4px solid #d4af37;
+      padding: 10px;
+      border-radius: 8px;
+      color: #4b3b00;
+      font-size: 12.5px;
+      line-height: 1.45;
+    }
+
+    .cancel-note {
+      color: #c62828;
+      font-weight: bold;
+    }
+
+    .side-title {
+      color: #0b2345;
+      font-size: 18px;
+      margin-bottom: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      border-bottom: 1px solid #d6dce8;
+      padding-bottom: 10px;
+    }
+
+    .mini-route {
+      background: #ffffff;
+      border: 1px solid #dce3ef;
+      padding: 11px;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .mini-route h3 {
+      color: #0b2345;
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .side-info {
+      margin-bottom: 10px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 9px;
+      border-radius: 9px;
+    }
+
+    .side-info small {
+      color: #6b7280;
+      display: block;
+      font-size: 10px;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+      font-weight: bold;
+    }
+
+    .side-info span {
+      color: #06152b;
+      font-weight: bold;
+      font-size: 13px;
+      word-break: break-word;
+    }
+
+    .barcode {
+      height: 58px;
+      background: repeating-linear-gradient(
+        90deg,
+        #06152b 0px,
+        #06152b 3px,
+        transparent 3px,
+        transparent 7px,
+        #06152b 7px,
+        #06152b 10px,
+        transparent 10px,
+        transparent 15px
+      );
+      border-radius: 8px;
+      margin-top: 12px;
+      opacity: 0.75;
+    }
+
+    .ticket-number {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 11px;
+      color: #334155;
+      letter-spacing: 0.7px;
+      font-weight: bold;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 22px;
+      flex-wrap: wrap;
+    }
+
+    .action-btn {
+      border: none;
+      padding: 11px 20px;
+      border-radius: 9px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .download {
+      background: #ffd700;
+      color: #06152b;
+    }
+
+    .dashboard {
+      background: #ffffff;
+      color: #06152b;
+    }
+
+    .book-more {
+      background: transparent;
+      color: #ffd700;
+      border: 1px solid #ffd700;
+    }
+
+    .note {
+      text-align: center;
+      color: #d8e4ff;
+      margin-top: 14px;
+      font-size: 13px;
+    }
+
+    .error-box {
+      background: white;
+      color: #06152b;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 600px;
+      margin: 40px auto;
+    }
+
+    .otp-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+
+    .otp-box {
+      background: white;
+      color: #06152b;
+      width: 390px;
+      max-width: 100%;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+
+    .otp-box h2 {
+      margin-bottom: 10px;
+      color: #0b2345;
+    }
+
+    .otp-box p {
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .otp-box input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 12px 0;
+      font-size: 16px;
+      text-align: center;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    .otp-box button {
+      width: 100%;
+      padding: 12px;
+      background: #06152b;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    .otp-box button.secondary {
+      background: #ffd700;
+      color: #06152b;
+    }
+
+    #otpMsg {
+      margin-top: 12px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    @media(max-width: 900px) {
+      .ticket-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .ticket-main::after {
+        display: none;
+      }
+
+      .passenger-row,
+      .time-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .details-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width: 650px) {
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .route {
+        grid-template-columns: 1fr;
+      }
+
+      .plane-line {
+        transform: rotate(90deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="brand">
+      <img src="logo.png" alt="Avanta Airline">
+      <h1>Avanta Airline</h1>
+    </div>
+
+    <button class="nav-btn" onclick="goDashboard()">Dashboard</button>
+  </header>
+
+  <div class="container">
+
+    <div class="success-box">
+      <h2>Booking Confirmation</h2>
+      <p>Your boarding pass is protected with OTP verification.</p>
+    </div>
+
+    <div id="ticketArea" class="locked"></div>
+
+    <div class="actions">
+      <button class="action-btn download" onclick="downloadTicket()">Download / Print Ticket</button>
+      <button class="action-btn dashboard" onclick="goDashboard()">Go to Dashboard</button>
+      <button class="action-btn book-more" onclick="bookMore()">Book Another Flight</button>
+    </div>
+
+    <p class="note">
+      Please carry this boarding pass and a valid government ID proof at the airport.
+    </p>
+
+  </div>
+
+  <div class="otp-overlay" id="otpOverlay">
+    <div class="otp-box">
+      <h2>OTP Verification</h2>
+      <p>To view your boarding pass, verify OTP sent for your ticket.</p>
+      <p><strong id="otpTicketInfo"></strong></p>
+
+      <input type="text" id="bookingOtpInput" placeholder="Enter OTP" maxlength="6">
+
+      <button onclick="verifyBookingOtp()">Verify OTP</button>
+      <button class="secondary" onclick="sendBookingOtp()">Resend OTP</button>
+
+      <p id="otpMsg"></p>
+    </div>
+  </div>
+
+  <script src="3.3confirm%26pass.js"></script>
+</body>
+</html>

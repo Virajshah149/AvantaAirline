@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to Avanta Airline</title>
+  <link rel="stylesheet" href="1login.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="top-header">
+      <img src="logo.png" alt="Avanta Airline" class="logo" />
+      <h1>Welcome to <span>Avanta Airline</span></h1>
+      <button class="dark-toggle">🌙</button>
+    </header>
+
+    <section class="intro">
+      <p>Your journey begins here. Premium comfort, on-time flights, and unforgettable service await you.</p>
+    </section>
+
+    <section class="features">
+      <div class="card">
+        <i class="fas fa-plane-departure"></i>
+        <h3>On-Time Flights</h3>
+        <p>We value your time and ensure reliable, punctual travel.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-chair"></i>
+        <h3>Luxury Comfort</h3>
+        <p>Ergonomic seating and spacious cabins designed for elite travel.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-globe"></i>
+        <h3>Global Network</h3>
+        <p>Fly to over 100+ destinations worldwide with seamless connectivity.</p>
+      </div>
+    </section>
+
+    <section class="about">
+      <h2>Who We Are</h2>
+      <p>Avanta Airline is a next-generation airline combining cutting-edge technology with a premium passenger experience. We connect people, places, and possibilities.</p>
+    </section>
+
+    <section class="auth-section">
+      <div class="tabs">
+        <button class="tab active" data-tab="login">Login</button>
+        <button class="tab" data-tab="signup">Sign Up</button>
+      </div>
+
+      <div class="form-container">
+        <!-- Login -->
+        <form id="login-form" class="form active">
+          <label for="login-username">Username</label>
+          <input type="text" id="login-username" required placeholder="Enter username">
+
+          <label for="login-password">Password</label>
+          <div class="input-wrapper">
+            <input type="password" id="login-password" required placeholder="Enter password">
+            <i class="fas fa-eye toggle-password" data-target="login-password"></i>
+          </div>
+
+          <button type="submit" disabled>Login</button>
+        </form>
+
+        <!-- Sign Up -->
+        <form id="signup-form" class="form">
+          <label for="signup-name">Full Name</label>
+          <input type="text" id="signup-name" required placeholder="Enter full name">
+
+          <label for="signup-email">Email</label>
+          <input type="email" id="signup-email" required placeholder="Enter email">
+
+          <label for="signup-phone">Phone</label>
+          <input type="tel" id="signup-phone" required placeholder="Enter phone number">
+
+          <label for="signup-username">Username</label>
+          <input type="text" id="signup-username" required placeholder="Choose username">
+
+          <label for="signup-password">Password</label>
+          <div class="input-wrapper">
+            <input type="password" id="signup-password" required placeholder="Create password">
+            <i class="fas fa-eye toggle-password" data-target="signup-password"></i>
+          </div>
+
+          <button type="submit" disabled>Sign Up</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <script src="1login.js"></script>
+</body>
+</html>

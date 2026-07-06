@@ -1,0 +1,340 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #06152b, #0b2345, #102f5c);
+  color: white;
+}
+
+/* HEADER */
+
+.top-header {
+  width: 100%;
+  padding: 18px 45px;
+  background: rgba(5, 18, 39, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 5px 22px rgba(0, 0, 0, 0.35);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+}
+
+.brand h1 {
+  color: white;
+  font-size: 26px;
+}
+
+.brand h1 span {
+  color: #ffd700;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+}
+
+nav a {
+  color: #d8e4ff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #ffd700;
+}
+
+/* MAIN */
+
+.container {
+  width: 92%;
+  max-width: 1100px;
+  margin: 35px auto;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.hero-section h2 {
+  color: #ffd700;
+  font-size: 38px;
+  margin-bottom: 12px;
+}
+
+.hero-section p {
+  color: #d8e4ff;
+  font-size: 16px;
+  max-width: 720px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+/* SEARCH CARD */
+
+.search-card {
+  background: #ffffff;
+  color: #06152b;
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+  margin-bottom: 30px;
+}
+
+.search-card h3 {
+  font-size: 24px;
+  margin-bottom: 18px;
+  color: #0b2345;
+}
+
+#statusForm {
+  display: flex;
+  gap: 15px;
+}
+
+#statusForm input {
+  flex: 1;
+  padding: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+}
+
+#statusForm input:focus {
+  border-color: #0b2345;
+}
+
+#statusForm button {
+  padding: 14px 24px;
+  border: none;
+  border-radius: 10px;
+  background: #06152b;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#statusForm button:hover {
+  background: #0b2345;
+}
+
+#message {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* RESULTS */
+
+.results-section {
+  display: grid;
+  gap: 24px;
+}
+
+.status-card {
+  background: #ffffff;
+  color: #06152b;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+.status-top {
+  background: #f7f9fc;
+  padding: 22px;
+  border-bottom: 1px solid #dce3ef;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.flight-title h3 {
+  color: #0b2345;
+  font-size: 25px;
+  margin-bottom: 6px;
+}
+
+.flight-title p {
+  color: #64748b;
+  font-weight: bold;
+}
+
+.status-badge {
+  padding: 9px 17px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.status-confirmed,
+.status-on-time {
+  background: #d7f9df;
+  color: #0f7a2a;
+}
+
+.status-boarding {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-delayed {
+  background: #ffe8cc;
+  color: #b45309;
+}
+
+.status-cancelled {
+  background: #ffe0e0;
+  color: #c62828;
+}
+
+.status-departed {
+  background: #e0ecff;
+  color: #1d4ed8;
+}
+
+.route-box {
+  padding: 26px 22px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.city h2 {
+  font-size: 42px;
+  color: #0b2345;
+}
+
+.city p {
+  color: #64748b;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.plane-icon {
+  color: #d4af37;
+  font-size: 34px;
+}
+
+.info-grid {
+  padding: 0 22px 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.info-box {
+  background: #f1f5f9;
+  border: 1px solid #dce3ef;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.info-box small {
+  display: block;
+  color: #64748b;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.info-box span {
+  color: #06152b;
+  font-weight: bold;
+  font-size: 15px;
+  word-break: break-word;
+}
+
+.action-row {
+  padding: 0 22px 24px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.action-row button {
+  padding: 11px 18px;
+  border: none;
+  border-radius: 9px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.view-ticket-btn {
+  background: #ffd700;
+  color: #06152b;
+}
+
+.support-btn {
+  background: #06152b;
+  color: white;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .top-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #statusForm {
+    flex-direction: column;
+  }
+
+  .route-box {
+    grid-template-columns: 1fr;
+  }
+
+  .plane-icon {
+    transform: rotate(90deg);
+  }
+
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .status-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 550px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section h2 {
+    font-size: 30px;
+  }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Avanta LUXE - Premium Plan</title>
+  <link rel="stylesheet" href="6.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="background-gradient"></div>
+  <div class="container">
+    <header class="page-header">
+      <h1>Avanta <span class="luxe">LUXE</span></h1>
+      <p class="subtitle">Elevate your journey with elite experiences</p>
+    </header>
+
+    <div class="plans-grid">
+      <!-- Free Plan Limitations -->
+      <div class="card free-plan">
+        <h2 class="plan-title silver">Avanta Basic</h2>
+        <p class="plan-subtitle">Included with every ticket</p>
+        <ul>
+          <li>✖ Lounge Access</li>
+          <li>✖ In-flight Meals</li>
+          <li>✖ Extra Baggage Allowance</li>
+          <li>✖ Early Check-in or Boarding</li>
+          <li>✖ Priority Support</li>
+          <li>✖ Flexible Rescheduling</li>
+          <li>✖ Complimentary Seat Upgrades</li>
+        </ul>
+      </div>
+
+      <!-- Premium Plan Benefits -->
+      <div class="card premium-plan">
+        <h2 class="plan-title gold">Avanta LUXE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₹9999&nbsp;&nbsp;&nbsp;&nbsp;<del> (12,500)&nbsp;</del></h2>
+        <p class="plan-subtitle">Premium Membership Plan</p>
+        <ul>
+          <li>✔ 25% Discount on All Flights</li>
+          <li>✔ Complimentary In-flight Gourmet Meals</li>
+          <li>✔ Global Lounge Access</li>
+          <li>✔ Extra 10kg Baggage</li>
+          <li>✔ Priority Boarding & Check-in</li>
+          <li>✔ Free Flight Changes</li>
+          <li>✔ Dedicated 24/7 Concierge</li>
+          <li>✔ Surprise Travel Perks</li>
+        </ul>
+        <button class="subscribe-btn" onclick="openModal()">Upgrade to LUXE</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div id="luxeModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2>Join Avanta LUXE</h2>
+      <form>
+        <input type="text" placeholder="User Name" required />
+        <input type="password" placeholder="Password" required />
+        <input type="email" placeholder="Email Address" required />
+        <select required>
+          <option disabled selected>Select Payment Method</option>
+          <option>Credit/Debit Card</option>
+          <option>UPI</option>
+          <option>Net Banking</option>
+        </select>
+        <button type="submit" class="modal-submit">Confirm & Upgrade</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="6.js"></script>
+</body>
+</html>

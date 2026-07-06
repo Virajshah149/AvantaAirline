@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Support - Avanta Airlines</title>
+  <link rel="stylesheet" href="7.0support.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+
+    <header class="page-header">
+      <h1>Avanta <span class="highlight">Support</span></h1>
+      <p class="subtitle">We're here to help you with everything — from takeoff to touchdown.</p>
+    </header>
+
+    <section class="card light-card">
+      <h2>Cancel Your Flight</h2>
+      <p>Enter your ticket number and passenger email. OTP verification is required for cancellation.</p>
+
+      <form class="cancel-form" id="cancelForm">
+        <input type="text" id="ticketNumber" placeholder="Ticket Number e.g. AVT-1777657398907" required />
+        <input type="email" id="cancelEmail" placeholder="Passenger Email Address" required />
+
+        <button type="button" id="sendOtpBtn">Send OTP</button>
+
+        <input type="text" id="cancelOtp" placeholder="Enter OTP" maxlength="6" required />
+
+        <button type="submit">Cancel Flight</button>
+      </form>
+
+      <p id="cancelMsg"></p>
+    </section>
+
+    <section class="card help-card">
+      <h2>Quick Help</h2>
+      <div class="help-grid">
+        <a href="4.0flight_status.html">Check Flight Status</a>
+        <a href="6.html">Purchase Avanta Luxe</a>
+        <a href="5.0.html">My Bookings</a>
+        <a href="5.1.html">Update Profile</a>
+        <a href="5.0.html">Download E-Ticket</a>
+        <a href="#">Baggage Rules</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Raise a Support Request</h2>
+      <p>Submit your issue and our support team will review it.</p>
+
+      <form class="support-form" id="supportForm">
+        <input type="text" id="supportName" placeholder="Your Name" required />
+        <input type="email" id="supportEmail" placeholder="Your Email" required />
+        <input type="text" id="supportSubject" placeholder="Subject" required />
+        <textarea id="supportMessage" placeholder="Describe your issue..." required></textarea>
+        <button type="submit">Submit Request</button>
+      </form>
+
+      <p id="supportMsg"></p>
+    </section>
+
+    <section class="card">
+      <h2>Frequently Asked Questions</h2>
+      <ul class="faq-list">
+        <li><strong>Q:</strong> How do I reschedule my flight?<br><span>-> Go to ‘My Bookings’ > Select Flight > Click ‘Reschedule’.</span></li>
+        <li><strong>Q:</strong> What is the refund timeline?<br><span>-> 5–7 business days via original payment method.</span></li>
+        <li><strong>Q:</strong> Can I carry extra luggage?<br><span>-> Yes, charges apply based on weight and route.</span></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Contact Us</h2>
+      <p>Need further help? Reach out to our support team 24/7.</p>
+      <div class="contact-options">
+        <p><strong>Email:</strong> support@avantaair.com</p>
+        <p><strong>Call:</strong> +91 1800 123 456</p>
+        <p><strong>WhatsApp:</strong> +91 98765 43210</p>
+        <a href="mailto:support@avantaair.com" class="btn">Mail Us Directly</a>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="7.0.js"></script>
+</body>
+</html>

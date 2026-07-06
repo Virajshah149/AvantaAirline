@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Avanta Admin Dashboard</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #06152b;
+      color: white;
+    }
+
+    header {
+      background: #0b2345;
+      padding: 20px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.35);
+    }
+
+    header h1 {
+      margin: 0;
+      color: #ffd700;
+      font-size: 26px;
+    }
+
+    header button {
+      background: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 25px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: #0b2345;
+      padding: 22px;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0 0 14px rgba(0,0,0,0.3);
+      border: 1px solid #1e3a5f;
+    }
+
+    .card h2 {
+      color: #ffd700;
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+
+    .card p {
+      margin: 0;
+      color: #d8e4ff;
+      font-weight: bold;
+    }
+
+    .section {
+      background: #0b2345;
+      padding: 22px;
+      border-radius: 14px;
+      margin-bottom: 28px;
+      overflow-x: auto;
+      box-shadow: 0 0 14px rgba(0,0,0,0.28);
+      border: 1px solid #1e3a5f;
+    }
+
+    .section h2 {
+      color: #ffd700;
+      margin-top: 0;
+      margin-bottom: 18px;
+    }
+
+    .toolbar {
+      margin-bottom: 15px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .toolbar input {
+      padding: 11px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      width: 280px;
+    }
+
+    .toolbar button {
+      padding: 11px 16px;
+      border: none;
+      border-radius: 8px;
+      background: #ffd700;
+      color: #06152b;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      color: white;
+      min-width: 900px;
+    }
+
+    th, td {
+      border: 1px solid #36557d;
+      padding: 10px;
+      text-align: left;
+      font-size: 14px;
+      vertical-align: middle;
+    }
+
+    th {
+      background: #12386b;
+      color: #ffd700;
+      white-space: nowrap;
+    }
+
+    td {
+      background: #102b50;
+    }
+
+    select {
+      padding: 8px;
+      border-radius: 7px;
+      border: none;
+      outline: none;
+      font-weight: bold;
+    }
+
+    .delete-btn {
+      background: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .refresh-btn {
+      background: #ffd700;
+      color: #06152b;
+      border: none;
+      padding: 9px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .status-pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .status-confirmed,
+    .status-on-time {
+      background: #d7f9df;
+      color: #0f7a2a;
+    }
+
+    .status-boarding {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .status-delayed {
+      background: #ffe8cc;
+      color: #b45309;
+    }
+
+    .status-cancelled {
+      background: #ffe0e0;
+      color: #c62828;
+    }
+
+    .status-departed {
+      background: #e0ecff;
+      color: #1d4ed8;
+    }
+
+    .message {
+      margin-bottom: 15px;
+      font-weight: bold;
+      color: #ffd700;
+    }
+
+    @media(max-width: 1000px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width: 650px) {
+      header {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .toolbar input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Avanta Airlines Admin Dashboard</h1>
+    <button onclick="logout()">Logout</button>
+  </header>
+
+  <div class="container">
+
+    <div class="cards">
+      <div class="card">
+        <h2 id="totalUsers">0</h2>
+        <p>Total Users</p>
+      </div>
+
+      <div class="card">
+        <h2 id="totalBookings">0</h2>
+        <p>Total Bookings</p>
+      </div>
+
+      <div class="card">
+        <h2>₹<span id="totalRevenue">0</span></h2>
+        <p>Total Revenue</p>
+      </div>
+
+      <div class="card">
+        <h2 id="totalSupportRequests">0</h2>
+        <p>Support Requests</p>
+      </div>
+    </div>
+
+    <p class="message" id="adminMsg"></p>
+
+    <div class="section">
+      <h2>Flight Bookings & Status Control</h2>
+
+      <div class="toolbar">
+        <input type="text" id="bookingSearch" placeholder="Search by passenger, ticket, flight, route..." />
+        <button onclick="filterBookings()">Search</button>
+        <button onclick="clearBookingSearch()">Clear</button>
+      </div>
+
+      <button class="refresh-btn" onclick="loadAllData()">Refresh Data</button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Ticket No</th>
+            <th>User</th>
+            <th>Passenger</th>
+            <th>Email</th>
+            <th>Route</th>
+            <th>Flight</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Seat</th>
+            <th>Gate</th>
+            <th>Terminal</th>
+            <th>Price</th>
+            <th>Current Status</th>
+            <th>Update Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody id="bookingsTable"></tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>Registered Users</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Username</th>
+            <th>Joined</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody id="usersTable"></tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>Support Requests</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Subject</th>
+            <th>Message</th>
+            <th>Status</th>
+            <th>Created</th>
+          </tr>
+        </thead>
+
+        <tbody id="supportTable"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="admin-dashboard.js"></script>
+</body>
+</html>

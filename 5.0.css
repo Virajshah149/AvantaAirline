@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0f1b2b;
+  color: #c0c0c0;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: #e0e6ed;
+}
+
+.edit-btn {
+  background-color: #1f3a5c;
+  border: none;
+  color: #c0c0c0;
+  padding: 8px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  margin-top: 10px;
+}
+
+.edit-btn:hover {
+  background-color: #294766;
+  transform: scale(1.05);
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
+}
+
+.left-panel,
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card,
+.profile-card {
+  background-color: #15273f;
+  border-radius: 16px;
+  padding: 20px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover,
+.profile-card:hover {
+  box-shadow: 0 4px 20px rgba(192, 192, 192, 0.1);
+  transform: translateY(-3px);
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+}
+
+.profile-photo {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #1f3a5c, #294766);
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.profile-info h2 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.card ul li {
+  padding: 6px 0;
+  border-bottom: 1px solid #2a405f;
+}
+
+.status {
+  float: right;
+  background-color: #3fbc8b;
+  padding: 3px 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.status.pending {
+  background-color: #e6a23c;
+}
+
+.trip-card {
+  background-color: #1c2d45;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+}
+
+.support-link {
+  color: #6ab3f8;
+  text-decoration: none;
+}
+
+.support-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .edit-btn {
+    margin-top: 10px;
+  }
+}

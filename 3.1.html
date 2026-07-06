@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seat Selection | Avanta Airlines</title>
+  <link rel="stylesheet" href="3.1seat_select.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="seat-hero">
+    <h1>Select Your Seat</h1>
+    <p>Customize your journey with Avanta Airlines</p>
+  </header>
+
+  <section class="selection-panel">
+    <form class="selection-form">
+      <label for="travelClass">Select Travel Class</label>
+      <select id="travelClass" name="travelClass">
+        <option value="first">First Class</option>
+        <option value="business">Business Class</option>
+        <option value="economy">Economy Class</option>
+      </select>
+
+      <label for="seatPosition">Seat Position</label>
+      <select id="seatPosition" name="seatPosition">
+        <option value="window">Window</option>
+        <option value="aisle">Aisle</option>
+        <option value="middle">Middle</option>
+      </select>
+
+      <label for="recliner">Recliner Type</label>
+      <select id="recliner" name="recliner">
+        <option value="full">Full Recliner</option>
+        <option value="partial">Partial Recline</option>
+        <option value="standard">Standard</option>
+      </select>
+
+      <label for="cabin">Cabin Area</label>
+      <select id="cabin" name="cabin">
+        <option value="front">Front</option>
+        <option value="middle">Middle</option>
+        <option value="rear">Rear</option>
+      </select>
+
+    <button type="submit" class="confirm-btn">Confirm Seat</button>
+    </form>
+  </section>
+
+  <footer class="seat-footer">
+    <p>Need help? <a href="7.0support.html">Contact Support</a></p>
+  </footer>
+  <script src="3.1.js"></script>
+</body>
+</html>
